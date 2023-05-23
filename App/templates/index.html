@@ -1,0 +1,445 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Youtube videos downloader</title>
+
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+        crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body style="margin-top: 0; padding-top: 0;">
+    <div class="container">
+
+        <nav class="navbar navbar-expand-md d-flex flex-wrap justify-content-sm-center pt-0">
+
+            <a class="navbar-brand d-flex justify-content-center" href="#">
+                <img height="50" src="{% static 'logo.png' %}" class="mr-3">
+                <span class="text-center text-dark" style="font-weight: bolder;"> y2mate.com </span>
+            </a>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse text-white  justify-content-lg-end justify-content-md-start" id="collapsibleNavbar">
+                <ul class="navbar-nav mynav">
+                    <li class="nav-item ">
+                        <a class="nav-link text-dark nav-bar-font py-4 px-3" href="#">Youtube Downloader</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark nav-bar-font py-4 px-3" href="#">Youtube Converter</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-dark nav-bar-font py-4 px-3" href="#">Youtube to MP3</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-dark nav-bar-font py-4 px-3" href="#">English</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+        <div id="input-container" class="container py-5 mt-0 mb-5 card">
+            <h2 class=" mt-2 mb-5 text-center" style="font-weight: 400">Download Video and Audio from YouTube</h2>
+
+            <form id="link-form" class="row container">
+                <input type="text" placeholder="Search or paste link here..." class="col-10 pl-4  form-control py-4" id="link-field">
+                <input type="button" id="btn" class="btn py-2 col-2 text-white mr-0" value="Start &#8594;">
+
+            </form>
+
+            <small>
+                <p class="mt-2 text-center">By using our service, you are accepting our Terms of Use. </p>
+            </small>
+
+
+
+            <!-- <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+                </li>
+            </ul>
+
+
+            <div class="tab-content">
+                <div class="tab-pane active container" id="home">.fkdsdfj..</div>
+                <div class="tab-pane container" id="menu1">.sdj.kdk.</div>
+                <div class="tab-pane container" id="menu2">.siiafdiofsdjweioji..</div>
+            </div>
+
+            <script>
+
+                $('.nav-tabs a').click(function () {
+                    $(this).tab('show');
+                })
+
+
+            </script> -->
+
+
+
+
+
+
+
+
+            <div class="container d-flex flex-wrap justify-content-between row mt-4">
+
+                <div class="thumbnail-div col-md-6">
+
+                    <img src="{% static 'rema.jpg' %}" class="img-fluid" alt="">
+                    <h5 class="pt-2">Rema - Corny (Unofficial Video) Rema - Corny (Unofficial Video) Rema - Corny (Unofficial Video)</h5>
+                </div>
+
+
+                <table class="table-bordered col-md-6">
+
+                    <thead>
+                        <tr class="text-center">
+                            <td class="py-3">
+                                <small>File type </small>
+                            </td>
+                            <td class="py-3">
+                                <small>File size </small>
+                            </td>
+                            <td class="py-3">
+                                <small>Action </small>
+                            </td>
+                        </tr>
+                    </thead>
+
+                    <tbody class="text-center">
+
+                        <tr>
+                            <td>MP4 Auto quality</td>
+                            <td>MB</td>
+                            <td>
+                                <button class="btn btn-success p-2">Download</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MP4 Auto quality</td>
+                            <td>MB</td>
+                            <td>
+                                <button class="btn btn-success">Download</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MP4 Auto quality</td>
+                            <td>MB</td>
+                            <td>
+                                <button class="btn btn-success">Download</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="container-fluid">
+                <h5 style="font-weight: 500;" class="mt-4">Related Videos</h5>
+                <hr>
+
+                <div class="row d-flex">
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 text-center">
+                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
+                        <p>Rema - Corny (Official Music Video)</p>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="container text-center">
+
+            <h3>YouTube Video Downloader</h3>
+
+            <p>Y2mate allows you to convert & download video from YouTube, Facebook, Video, Dailymotion, Youku, etc. to Mp3,
+                Mp4 in HD quality. Y2mate supports downloading all video formats such as: MP4, M4V, 3GP, WMV, FLV, MO, MP3,
+                WEBM, etc. You can easily download for free thousands of videos from YouTube and other websites.</p>
+        </div>
+
+        <hr style="width: 60%;" class=" my-5">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h5>Instructions</h5>
+                    <ol>
+                        <li>Search by name or directly paste the link of video you want to convert</li>
+                        <li>Click "Start" button to begin converting process</li>
+                        <li>Select the video/audio format you want to download, then click "Download" button</li>
+                    </ol>
+
+                </div>
+
+
+                <div class="col-md-6">
+                    <h5>Features</h5>
+                    <ul>
+                        <li> Unlimited downloads and always free </li>
+                        <li>High-speed video converter</li>
+                        <li>No registration required</li>
+                        <li>Support downloading with all formats</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr style="width: 60%;" class=" my-5">
+
+        <div class="container d-flex text-center justify-content-between">
+
+            <div>
+                <img src="" height="100" width="100" alt="">
+                <h4>Free Download</h4>
+                <p>Unlimited conversion and free download.</p>
+            </div>
+
+            <div>
+                <img src="" height="100" width="100" alt="">
+                <h4>Video & Audio</h4>
+                <p>Directly Download Video & Music.</p>
+            </div>
+
+            <div>
+                <img src="" height="100" width="100" alt="">
+                <h4>Easy Download</h4>
+                <p>Fully compatible with all browsers.</p>
+            </div>
+
+        </div>
+
+        <hr style="width: 60%;" class=" my-5">
+
+        <div class="container">
+
+            <p>
+                <b>Tip:</b> Insert "
+                <strong>pp</strong>" after the word "youtube" in the link to download videos and mp3 files from YouTube as a faster
+                way.
+            </p>
+            <img src="{% static 'tip-download-youtube.jpg' %}" class="p-0 m-0 img-fluid" alt="">
+            <br>
+            <br>
+
+            <p> If you can’t directly download video to your PC, please follow the guidelines below: </p>
+
+            <p>Step1: Select the format you want and click "Download" button. </p>
+
+            <p> Step2: In new window, press "CTRL + S" to save video OR right click to video, then select "Save as Video".</p>
+        </div>
+
+    </div>
+
+    <hr class=" my-5">
+
+    <footer class="container mb-5 text-center">
+
+        <p>@ 2016 - 2023 y2mate.com</p>
+
+        <div class="container">
+
+            <div class="text-center">
+                <ul class="nav d-flex justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Terms of Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+
+        var btnStart = document.getElementById('btn')
+        btnStart.addEventListener('click', function (e) {
+
+            var img = document.createElement('img')
+            img.src = `{% static 'loading.gif' %}`
+            img.width = 200
+            img.className = 'img-fluid mx-auto'
+            img.id = 'loadingimg'
+
+            if (!document.getElementById('loadingimg')) {
+                document.getElementById('input-container').appendChild(img)
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>

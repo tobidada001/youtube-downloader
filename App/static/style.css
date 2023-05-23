@@ -1,0 +1,19 @@
+#link-field,
+#btn {
+    border: 7px solid #ee1467;
+}
+
+#btn {
+    border-left: 0;
+    background: #ff0464;
+}
+
+.nav-bar-font {
+    font-size: 1rem;
+}
+.mynav li:hover{
+    background: #e7e6e6;
+}
+body{
+    background: rgb(245, 245, 245)
+}
