@@ -7,27 +7,35 @@ def index(request):
 
     if request.method == 'POST':
         link = request.POST['link']
-        video = YouTube(link)
         links = []
+        video_title = None
 
-        for stream in video.streams.all():
+        try:
+            video = YouTube(link) 
 
-            print( 'resolution', stream.resolution,
-                'type' , stream.mime_type,
-                'size', stream.filesize / (1024 * 1024))
+                
+            for stream in video.streams.filter(progressive = True):
 
-            if stream.resolution:
-                stream_data = {
-                    'resolution': stream.resolution,
-                    'type' : stream.mime_type,
-                    'url' : stream.url,
-                    'size': stream.filesize / (1024 * 1024)
-                }
+                print( 'resolution', stream.resolution,
+                    'type' , stream.mime_type,
+                    'size', stream.filesize / (1024 * 1024))
 
-                links.append(stream_data)
+                if stream.resolution:
+                    stream_data = {
+                        'resolution': stream.resolution,
+                        'type' : stream.mime_type,
+                        'url' : stream.url,
+                        'size': stream.filesize / (1024 * 1024)
+                    }
 
-        video_title = video.title
+                    links.append(stream_data)
 
+            video_title = video.title
+
+        except:
+            
+            pass
+            
         return JsonResponse({'data' : links, 'title': video_title}, safe=False)
     return render(request, 'index.html')
 

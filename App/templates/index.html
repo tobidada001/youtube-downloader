@@ -76,15 +76,15 @@
             <img src="{% static 'loading.gif' %}" class="mx-auto my-3" width="200" id="loadingimg" alt="">
 
 
-            <div id="result-container" class="container d-flex flex-wrap justify-content-between row mt-4">
+            <div class="container d-flex flex-wrap justify-content-between row mt-4" id="contentcontainer">
 
-                <div class="thumbnail-div col-md-6">
+                <div class="thumbnail-div col-md-6 togglecontainer">
 
                     <img src="{% static 'rema.jpg' %}" class="img-fluid" alt="">
                     <h5 class="pt-2" id="video-title">Rema - Corny (Unofficial Video) Rema - Corny (Unofficial Video) Rema - Corny (Unofficial Video)</h5>
                 </div>
 
-                <div class="container-fluid col-md-6">
+                <div class="container-fluid col-md-6 togglecontainer">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#video">Video</a>
@@ -172,7 +172,7 @@
             </div>
 
 
-            <div class="container-fluid">
+            <div class="container-fluid togglecontainer">
                 <h5 style="font-weight: 500;" class="mt-4">Related Videos</h5>
                 <hr>
 
@@ -189,30 +189,7 @@
                         <p>Rema - Corny (Official Music Video)</p>
                     </div>
 
-                    <div class="col-lg-3 col-md-4 col-6 text-center">
-                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
-                        <p>Rema - Corny (Official Music Video)</p>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-6 text-center">
-                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
-                        <p>Rema - Corny (Official Music Video)</p>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-6 text-center">
-                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
-                        <p>Rema - Corny (Official Music Video)</p>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-6 text-center">
-                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
-                        <p>Rema - Corny (Official Music Video)</p>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-6 text-center">
-                        <img src="{% static 'rema.jpg' %}" class="img-fluid" height="200" alt="">
-                        <p>Rema - Corny (Official Music Video)</p>
-                    </div>
 
                 </div>
 
@@ -340,39 +317,21 @@
         </div>
     </footer>
 
-    <script>
-
-
-        var btnStart = document.getElementById('btn')
-        btnStart.addEventListener('click', function (e) {
-
-            // var img = document.createElement('img')
-            // img.src = `{% static 'loading.gif' %}`
-            // img.width = 200
-            // img.className = 'img-fluid mx-auto'
-            // img.id = 'loadingimg'
-            console.log('Clicked btn');
-            // if (!document.getElementById('loadingimg')) {
-            //     document.getElementById('input-container').appendChild(img)
-            // }
-
-        })
-
-    </script>
 
     <script>
 
         $(document).ready(function () {
+            $('#loadingimg').hide();
+            $('.togglecontainer').hide()
+
             $('.nav-tabs a').click(function () {
                 $(this).tab('show');
             })
-            
 
-            $('#result-container').hide()
-            $('#loadingimg').hide()
 
             $(document).on('submit', '#link-form', function (e) {
                 e.preventDefault();
+                $('#loadingimg').show();
 
                 $.ajax({
                     url: '',
@@ -384,7 +343,12 @@
                     success: (data) => {
 
                         if (data.data) {
+
                             $('#video-title').html(data.title)
+                            $('#loadingimg').hide();
+
+                            $('.togglecontainer').show();
+
                             var table = $('#video-tbody')
                             var tableaud = $('#audio-tbody')
                             table.empty();
@@ -392,7 +356,7 @@
 
                             data.data.map((obj) => {
 
-                                if (obj.resolution && String(obj.mime_type).includes('mp4')) {
+                                if (obj.resolution != "None") {
                                     table.append(` <tr>
                     <td>${obj.resolution}</td>
                     <td>${obj.size.toFixed(2)}MB</td>
