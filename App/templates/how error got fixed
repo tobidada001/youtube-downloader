@@ -1,0 +1,5 @@
+Error >>> pytube.exceptions.RegexMatchError: __init__: could not find match for ^\w+\W
+
+Fix: go to the Cypher.py file and edit line 30 to replace var_regex = re.compile(r"^\w+\W") with var_regex = re.compile(r"^$*\w+\W")
+
+python3 -m pip install git+https://github.com/pytube/pytube
